@@ -244,3 +244,29 @@ class AuditEntry(BaseModel):
     field_5: str | None = None  # 审核结论
     field_6: str | None = None  # 审核人员
     field_7: str | None = None  # 审核状态
+
+
+class DrillPlanEntry(BaseModel):
+    """应急演练计划明细结构。"""
+
+    field_0: str | None = None  # 计划编号
+    field_1: str | None = None  # 演练季度
+    field_2: str | None = None  # 演练名称
+    field_3: str | None = None  # 演练类型
+    field_4: str | None = None  # 计划演练日
+    field_5: str | None = None  # 编排人员
+    field_6: str | None = None  # 编排日期
+    field_7: str | None = None  # 整组进度
+
+
+class DrillIssueEntry(BaseModel):
+    """应急演练问题明细结构。"""
+
+    field_0: str | None = None  # 问题编号
+    field_1: str | None = None  # 演练编号
+    field_2: str | None = None  # 参演班组
+    field_3: str | None = None  # 问题描述
+    field_4: str | None = None  # 责任人
+    field_5: str | None = None  # 整改措施
+    field_6: str | None = None  # 闭环时间
+    field_7: str | None = None  # 整改状态
