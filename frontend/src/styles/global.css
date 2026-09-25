@@ -33,3 +33,26 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .link { border: none; background: none; color: var(--brand); cursor: pointer; padding: 0; }
 .page-foot { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--muted); }
 .error-text { color: #b42318; }
+.tag { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; background: #eef2f7; color: #475569; white-space: nowrap; }
+.tag.ok { background: #e7f6ec; color: #1a7f37; }
+.tag.doing { background: #e8f0fe; color: #1f6feb; }
+.tag.warn { background: #fdeee8; color: #c2410c; }
+.progress-bar { width: 120px; height: 6px; background: #eef2f7; border-radius: 4px; margin-top: 4px; overflow: hidden; }
+.progress-bar i { display: block; height: 100%; background: var(--brand); border-radius: 4px; }
+.progress-bar i.done { background: #1a7f37; }
+.check-col { width: 36px; text-align: center; }
+.back-link { display: inline-block; margin-bottom: 6px; font-size: 13px; }
+.orphan-panel, .dispatch-panel { margin-top: 16px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.orphan-panel h3, .dispatch-panel h3 { margin: 0 0 8px; font-size: 14px; }
+.dispatch-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.dispatch-list li { display: flex; gap: 10px; align-items: center; font-size: 13px; padding: 6px 8px; border-radius: 6px; }
+.dispatch-list li.line-ok { background: #f3fbf5; }
+.dispatch-list li.line-fail { background: #fdf3f1; }
+.modal-mask { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); display: flex; align-items: center; justify-content: center; z-index: 20; }
+.modal-card { width: 420px; max-width: calc(100vw - 32px); background: #fff; border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+.modal-card h3 { margin: 0; font-size: 16px; }
+.modal-card textarea, .modal-card input { width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; font: inherit; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
+.muted-text { color: var(--muted); font-size: 12px; }
+select { border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; font: inherit; background: #fff; }
+tr.disabled td { background: #fbfcfe; }

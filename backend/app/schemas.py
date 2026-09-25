@@ -21,6 +21,35 @@ class ActionResult(BaseModel):
     entry: dict[str, Any] | None = None
 
 
+class BatchDispatchItem(BaseModel):
+    """批量下发的单条结果：ok=False 时在 reasons 里给出**这条**记录的全部说明。"""
+
+    id: Any
+    演练编号: str | None = None
+    演练名称: str | None = None
+    参演班组: str | None = None
+    status: str | None = None
+    ok: bool
+    reasons: list[str] = Field(default_factory=list)
+
+
+class BatchResult(BaseModel):
+    """批量动作结果：成功与失败的条目都带回来，不能只返回第一条的处理情况。"""
+
+    ok: bool
+    message: str
+    success: int = 0
+    failed: int = 0
+    items: list[BatchDispatchItem] = Field(default_factory=list)
+
+
+class BatchPayload(BaseModel):
+    """批量动作入参：一次提交多条演练记录。"""
+
+    ids: list[Any] = Field(default_factory=list)
+    values: dict[str, Any] = Field(default_factory=dict)
+
+
 class EntryPayload(BaseModel):
     """登记或修改一条业务记录时提交的字段集合。"""
 
@@ -244,3 +273,39 @@ class AuditEntry(BaseModel):
     field_5: str | None = None  # 审核结论
     field_6: str | None = None  # 审核人员
     field_7: str | None = None  # 审核状态
+
+class DrillPlanEntry(BaseModel):
+    """应急演练计划明细结构。"""
+
+    field_0: str | None = None  # 计划编号
+    field_1: str | None = None  # 演练季度
+    field_2: str | None = None  # 演练主题
+    field_3: str | None = None  # 演练场景
+    field_4: str | None = None  # 计划日期
+    field_5: str | None = None  # 编制人
+    field_6: str | None = None  # 整改进度
+    field_7: str | None = None  # 计划状态
+
+class DrillRecordEntry(BaseModel):
+    """演练记录明细结构。"""
+
+    field_0: str | None = None  # 演练编号
+    field_1: str | None = None  # 演练名称
+    field_2: str | None = None  # 参演班组
+    field_3: str | None = None  # 参演人员
+    field_4: str | None = None  # 演练时间
+    field_5: str | None = None  # 确认状态
+    field_6: str | None = None  # 闭环进度
+    field_7: str | None = None  # 演练状态
+
+class DrillIssueEntry(BaseModel):
+    """演练问题整改明细结构。"""
+
+    field_0: str | None = None  # 问题编号
+    field_1: str | None = None  # 演练名称
+    field_2: str | None = None  # 问题描述
+    field_3: str | None = None  # 责任人
+    field_4: str | None = None  # 整改措施
+    field_5: str | None = None  # 整改期限
+    field_6: str | None = None  # 验收人
+    field_7: str | None = None  # 整改状态

@@ -19,6 +19,9 @@ const Alarm = () => import('@/views/alarm/index.vue')
 const Maint = () => import('@/views/maint/index.vue')
 const Permit = () => import('@/views/permit/index.vue')
 const Audit = () => import('@/views/audit/index.vue')
+const DrillPlan = () => import('@/views/drill/index.vue')
+const DrillDetail = () => import('@/views/drill/detail.vue')
+const DrillTrack = () => import('@/views/drill/track.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -42,6 +45,9 @@ const router = createRouter({
     { path: '/maint', name: 'maint', component: Maint },
     { path: '/permit', name: 'permit', component: Permit },
     { path: '/audit', name: 'audit', component: Audit },
+    { path: '/drill', name: 'drill', component: DrillPlan },
+    { path: '/drill/:id/detail', name: 'drill-detail', component: DrillDetail, props: true },
+    { path: '/drill/:id/track', name: 'drill-track', component: DrillTrack, props: true },
   ],
 })
 
